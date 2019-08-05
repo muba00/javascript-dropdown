@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Shit Happenz Inc..</title>
+    </head>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .show {
+            display: block;
+        }
+    </style>
+
+    <body>
+        <div>
+            <a id="dropbtn-user" href="#">click me!</a>
+            <div id="dropmenu-user" class="hidden">Menu goes here...</div>
+        </div>
+    </body>
+
+    <script>
+        window.onload = function() {
+            // user account dropdown menu
+            var dropbtn_user = document.getElementById('dropbtn-user');
+            var dropmenu_user = document.getElementById("dropmenu-user");
+            // show/hide on click on dropbtn
+            function dropdown_user() {
+                event.preventDefault();
+                dropmenu_user.classList.toggle("show");
+            }
+            // close on click anywhere else
+            function dropdownX_user() {
+                if (!event.target.closest("#dropbtn-user") && dropmenu_user.classList.contains('show')) dropmenu_user.classList.remove('show');
+            }
+            dropbtn_user.addEventListener("click", dropdown_user);
+            window.addEventListener("click", dropdownX_user);
+        }
+    </script>
+</html>
